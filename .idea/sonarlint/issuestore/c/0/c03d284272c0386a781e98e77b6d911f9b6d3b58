@@ -1,7 +1,7 @@
 
 š
 java:S2293
-"YReplace the type specification in this constructor call with the diamond operator ("<>").(üÀäúúÿÿÿÿJ$825e4d5c-3579-436d-b332-53f9a653e604
+"YReplace the type specification in this constructor call with the diamond operator ("<>").(üÀäúúÿÿÿÿJ$d129c05c-223e-4e4d-b1db-f82f53b8ee0a
 z
-java:S5993"9Change the visibility of this constructor to "protected".(ÙûèúÿÿÿÿJ$dcaab3fe-fdc7-4c24-b979-73fe2f40e57c
-f	java:S1060"+Replace this use of System.err by a logger.(¤À†öJ$71bdd2d5-7eb3-45c1-a8ef-97a3e38b9ec2
+java:S5993"9Change the visibility of this constructor to "protected".(ÙûèúÿÿÿÿJ$e78a0666-4fed-4f61-82e2-d49266472205
+f	java:S106/"+Replace this use of System.err by a logger.(¤À†öJ$47abdf01-512d-4872-a8c3-9c29e52326da

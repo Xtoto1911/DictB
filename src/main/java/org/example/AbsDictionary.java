@@ -42,7 +42,6 @@ public abstract class AbsDictionary {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] parts = line.split(" - ");
                 if (parts.length == 2) {
-                    // добавляем пару "ключ-значение" в словарь
                     add(parts[0], parts[1]);
                 } else {
                     System.err.println("Строка " + line + " не соответствует формату \"ключ - значение\"");
