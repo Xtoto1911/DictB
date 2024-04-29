@@ -2,16 +2,28 @@ package org.example;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class AbsDictionary {
     private Map<String,String> dictionary = new HashMap<String,String>();
+    private String path;
 
     public AbsDictionary(String path) throws IOException {
+        this.path = path;
         fill(path);
     }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     public abstract String getRagex();
     public boolean add(String key, String val){
         if(!key.matches(getRagex()) || dictionary.containsKey(key)){
@@ -48,6 +60,19 @@ public abstract class AbsDictionary {
                 }
             }
         }
+    }
+
+    public boolean save(String path){
+        try (FileWriter fw = new FileWriter(path, false)) {
+            fw.write(toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    public boolean save(){
+        return save(getPath());
     }
 
     @Override

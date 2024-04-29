@@ -44,9 +44,9 @@ Q.idea/sonarlint/securityhotspotstore/2/c/2cabb939da04d3de3a200bf2b575690e1a1631
 Q.idea/sonarlint/securityhotspotstore/9/f/9f2038f25dc500a0b7f99e4aaf787f740c5b19f1,1\2\129f0c9916ad066c048794c11ea5a24ce009095f
 Å
 Q.idea/sonarlint/securityhotspotstore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,0\c\0c4799549ebca80c86406fd218445fef27b61acc
-8
-file.txt,5\4\5436437fa01a7d3e41d46741da54b451446774ca
 S
 #src/main/java/org/example/Menu.java,1\f\1f61a3a46f026d15105a13d65465c5466518fc1e
 ;
 numFile.txt,c\f\cf24bb454b91b2e49b89f1593a55fef124c80814
+=
+latinFile.txt,3\2\320547ba756e9aebf2dbeadb894b063a04343040
