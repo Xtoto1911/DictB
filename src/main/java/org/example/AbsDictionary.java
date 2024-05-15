@@ -20,8 +20,13 @@ public abstract class AbsDictionary {
         return path;
     }
 
-    public void setPath(String path) {
+    public void setPath(String path) throws IOException {
+        if(!getPath().isEmpty()){
+            save(getPath());
+            dictionary.clear();
+        }
         this.path = path;
+        fill(path);
     }
 
     public abstract String getRagex();
@@ -52,6 +57,7 @@ public abstract class AbsDictionary {
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
+
                 String[] parts = line.split(" - ");
                 if (parts.length == 2) {
                     add(parts[0], parts[1]);

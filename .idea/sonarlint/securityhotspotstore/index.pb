@@ -50,3 +50,7 @@ S
 numFile.txt,c\f\cf24bb454b91b2e49b89f1593a55fef124c80814
 =
 latinFile.txt,3\2\320547ba756e9aebf2dbeadb894b063a04343040
+A
+latinFileCopy.txt,6\c\6cbd111d966686c1bec320f453319931d5c5bf0c
+3
+asd,f\1\f10e2821bbbea527ea02200352313bc059445190

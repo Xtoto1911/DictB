@@ -1,5 +1,7 @@
 package org.example;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -7,8 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    private final LatinDictionary latinDictionary;
-    private final NumDictionary numDictionary;
+    private  LatinDictionary latinDictionary;
+    private  NumDictionary numDictionary;
 
     private final Scanner scanner;
 
@@ -18,13 +20,40 @@ public class Menu {
     );
 
     private final List<String> operMenuMess = Arrays.asList(
-            "1. Найти по ключу", "2. Дабавить слово", "3. Удалить слово",
-            "4. Вывод всего словаря", "5. Назад"
+            "1. Найти по ключу", "2. Добавить слово", "3. Удалить слово",
+            "4. Вывод всего словаря", "5. Другой файл","6. Назад"
     );
 
      public Menu() throws IOException {
-         latinDictionary = new LatinDictionary("latinFile.txt");
-         numDictionary = new NumDictionary("numFile.txt");
+         try {
+             File latinFile = new File("latinFile.txt");
+             File numFile = new File("numFile.txt");
+
+             if(!latinFile.exists() && !numFile.exists()){
+                 latinDictionary = new LatinDictionary(new File("defaultLatinFile.txt").getPath());
+                 numDictionary = new NumDictionary(new File("defaultNumFile.txt").getPath());
+             }
+             else if (!latinFile.exists()) {
+                 File def = new File("defaultLatinFile.txt");
+                 def.createNewFile();
+                 latinDictionary = new LatinDictionary(def.getPath());
+                 numDictionary = new NumDictionary("numFile.txt");
+             } else if (!numFile.exists()) {
+                 File def = new File("defaultNumFile.txt");
+                 def.createNewFile();
+                 numDictionary = new NumDictionary(new File("defaultNumFile.txt").getPath());
+                 latinDictionary = new LatinDictionary("latinFile.txt");
+             } else {
+                 latinDictionary = new LatinDictionary("latinFile.txt");
+                 numDictionary = new NumDictionary("numFile.txt");
+             }
+         } catch (FileNotFoundException e) {
+             System.out.println("Default file not found: " + e.getMessage());
+         } catch (IOException e) {
+             System.out.println("An IO error occurred: " + e.getMessage());
+         } catch (Exception e) {
+             System.out.println("An error occurred: " + e.getMessage());
+         }
          scanner = new Scanner(System.in);
      }
 
@@ -64,6 +93,9 @@ public class Menu {
                          System.out.println(dictionary);
                          break;
                      case ("5"):
+                         dictionary.setPath(scanner.nextLine());
+                         break;
+                     case ("6"):
                          flag = false;
                          break;
                      default:
