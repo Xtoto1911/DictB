@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    private  LatinDictionary latinDictionary;
-    private  NumDictionary numDictionary;
+    private LatinDictionary latinDictionary;
+    private NumDictionary numDictionary;
 
-    private final Scanner scanner;
+    private Scanner scanner;
 
     private final List<String> mainMenuMess = Arrays.asList(
             "1. Словарь с цифрами", "2. Словарь с латинскими буквами","3. Показать содержимое обоих словарей",
@@ -30,8 +30,12 @@ public class Menu {
              File numFile = new File("numFile.txt");
 
              if(!latinFile.exists() && !numFile.exists()){
-                 latinDictionary = new LatinDictionary(new File("defaultLatinFile.txt").getPath());
-                 numDictionary = new NumDictionary(new File("defaultNumFile.txt").getPath());
+                 File latin = new File("defaultLatinFile.txt");
+                 File num = new File("defaultNumFile.txt");
+                 latin.createNewFile();
+                 num.createNewFile();
+                 latinDictionary = new LatinDictionary(latin.getPath());
+                 numDictionary = new NumDictionary(num.getPath());
              }
              else if (!latinFile.exists()) {
                  File def = new File("defaultLatinFile.txt");
